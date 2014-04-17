@@ -18,4 +18,13 @@ if (Meteor.isServer) {
   Things.insert({name: 'couch', roomId: rooms[0], ownerId: owners[1]});
   Things.insert({name: 'sink', roomId: rooms[1], ownerId: owners[2]});
   Things.insert({name: 'window', roomId: rooms[2], ownerId: owners[2]});
+
+  Meteor.publish('subget-owners', function (ids) {
+    console.info('publishing owners', ids);
+    return Owners.find({_id: {$in: ids}});
+  });
+  Meteor.publish('subget-rooms', function (ids) {
+    console.info('publishing rooms', ids);
+    return Rooms.find({_id: {$in: ids}});
+  });
 }
