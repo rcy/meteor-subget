@@ -36,7 +36,7 @@ if (Meteor.isClient) {
 
 
     // Subscribe automatically.  Wrap in defer so we do not have the
-    // subscription autorun nested a reactive computation.
+    // subscription autorun nested inside a reactive computation.
     Meteor.defer(function () {
       self.sub();
     });
